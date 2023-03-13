@@ -1,0 +1,12 @@
+# hey travis tht we need super user priviliges
+sudo: required  
+services:
+  - docker
+# anything we list right here is some series of steps that we require before we start to deploy or brfore we start to test
+# to refer it by name rather than id using -t   tagname can be used anything as it runs only here..
+before_install: 
+  - docker build -t suhasumesh/docker-react -f Dockerfile.dev .
+
+script: 
+  - docker run suhasumesh/docker-react npm run test -- --coverage
+  
