@@ -9,3 +9,12 @@ services:
     volumes:
       - /frontend/node_modules
       - .:/frontend
+  tests:              #test container is created
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /frontend/node_modules
+      - .:/frontend
+    command: ["npm","run","test"]
+
