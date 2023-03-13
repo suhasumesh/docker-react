@@ -1,0 +1,11 @@
+version: '3'
+services: 
+  web: 
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev                     # look into the Dockerfile.dev  and tht context is to refer to which directory like if our react project is present in a different folder we can mention that folder name:
+    ports:
+      - "3000:3000"
+    volumes:
+      - /frontend/node_modules
+      - .:/frontend
